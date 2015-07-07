@@ -4,7 +4,7 @@ Development project at UTBM
 Used MQTT for ringing on RPI
 
 
-## Library used
+## Used library
 ### Paho for linux
 MQTT library : https://www.eclipse.org/paho/clients/c/
 
