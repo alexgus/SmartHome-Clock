@@ -11,5 +11,5 @@
 
 
 void Ring::play() {
-
+    cout << "Ringing" << endl;
 }

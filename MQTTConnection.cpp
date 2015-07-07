@@ -32,7 +32,6 @@ MQTTConnection::MQTTConnection(string clientID, string serverIP, int port){
 }
 
 void MQTTConnection::connect() {
-    cout << string(this->serverIP + string(":") + to_string(this->port)).c_str() << endl;
     MQTTClient_create(&this->client, string(this->serverIP + string(":") + to_string(this->port)).c_str(), this->clientID.c_str(), MQTTCLIENT_PERSISTENCE_NONE, NULL);
 
     this->conn_opts.keepAliveInterval = 20;
@@ -42,7 +41,7 @@ void MQTTConnection::connect() {
 
     if(MQTTClient_connect(client, &conn_opts) != MQTTCLIENT_SUCCESS)
     {
-        printf("Failed to connect");
+        printf("Failed to connect\n");
         exit(-1);
     }
 }

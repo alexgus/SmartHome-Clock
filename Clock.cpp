@@ -14,6 +14,10 @@ Clock::Clock() {
 	this->setISR();
 	this->_ring = Ring();
 	this->delay = Delay();
+
+    this->mqtt = new MQTTConnection(CLOCK_MQTT_ID,CLOCK_MQTT_SERVER,CLOCK_MQTT_PORT);
+    this->mqtt->connect();
+    this->mqtt->subscribe(CLOCK_MQTT_TOPIC,*this);
 }
 
 /**
@@ -25,10 +29,24 @@ void Clock::ISR() {
 
 /**
  * Callback when payload of subscribed topic is received
+ * @param topic
  * @param payload
  */
-void Clock::handlePayload(string payload) {
+void Clock::callback(string topic, string payload) {
+    cout << "Clock : " << topic << " " << payload << endl;
 
+    
+    if(payload.find(string(Cmd[0])) == 0) // RING
+        this->ring();
+
+    if(payload.find(string(Cmd[2])) == 0) // ABORT
+        ; // TODO
+
+    if(payload.find(string(Cmd[4])) == 0){ // CONF_DELAY
+        string s = payload.substr(string(Cmd[4]).length() + 1);
+        int sec = stoi(s, NULL,10);
+    	this->delay = Delay(sec);
+    }
 }
 
 /**
@@ -54,3 +72,4 @@ void Clock::delayedRing() {
 void Clock::setISR() {
 
 }
+
