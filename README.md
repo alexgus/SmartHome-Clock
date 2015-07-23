@@ -1,4 +1,4 @@
-#TO52---SmartHome---Clock
+#TO52 : SmartHome / Clock
 Development project at UTBM
 
 Used MQTT for ringing on RPI
