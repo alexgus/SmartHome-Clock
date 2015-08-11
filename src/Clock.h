@@ -10,7 +10,6 @@
 #include <iostream>
 
 #include "State.h"
-#include "Cmd.h"
 #include "Delay.h"
 #include "Ring.h"
 #include "MQTTCallback.h"

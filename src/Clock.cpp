@@ -5,6 +5,8 @@
 
 #include "Clock.h"
 
+char Cmd[][16] = { "RING", "SNOOZE", "ABORT", "DISMISS", "CONF_DELAY" };
+
 /**
  * Clock implementation
  */
