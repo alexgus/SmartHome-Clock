@@ -2,4 +2,5 @@
 /TO52
 /.cproject
 /.project
-/Debug/src
+/Debug/src/*.d
+/Debug/src/*.o
