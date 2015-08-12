@@ -15,8 +15,8 @@ Used MQTT for ringing on the board. Commands are :
 Configurations of the MQTT broker have to be set in the code for the moment. Extern configuration file will be configured later (host, port, subscribed topic). Pin mapped to the board will also be in this file.
 
 ## Used library
-### Paho for linux (c mapping, not c++, for embed it easily in all devices)
+Paho for linux (c mapping, not c++, for embed it easily in all devices)
 MQTT library : https://www.eclipse.org/paho/clients/c/
 
-# Compilation
+## Compilation
 For now, just type `make` in the `Debug` folder. It will create the `SmartHome-Clock` executable. If you do not have the paho library installed on your system, this won't work !
