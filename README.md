@@ -1,5 +1,7 @@
 #TO52 : SmartHome / Clock
-Development project at UTBM
+Development project at UTBM school.
+
+This project intends to make ring a board (Raspberry Pi, Arduino, ...) with internet access and some free pin (for button and output the ring's melody). For make it ringing you just have to send a MQTT frame !
 
 ## MQTT commands
 Used MQTT for ringing on the board. Commands are :
