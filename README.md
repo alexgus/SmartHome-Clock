@@ -24,4 +24,4 @@ OpenSSL library : used by MQTT PAHO
 ## Compilation
 For now, just type `make` in the `Debug` folder. It will create the `SmartHome-Clock` executable. If you do not have the paho library installed on your system, this won't work !
 
-For automated installation see scripts [here.](https://github.com/alexgus/SmartHome "Doc installation")
+For automated installation see scripts [here.](https://github.com/alexgus/SmartHome "Doc installation") Also look for dependencies !
