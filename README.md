@@ -6,7 +6,7 @@ Full project and documentation [HERE !](https://github.com/alexgus/SmartHome "Do
 This project intends to make ring a board (Raspberry Pi, Arduino, ...) with internet access and some free pin (for button and output the ring's melody). For make it ringing you just have to send a MQTT frame !
 
 ## MQTT commands
-Used MQTT for ringing on the board. Commands are :
+Used MQTT for ringing on the board. Topic is `/clock`. Payload commands are :
  * `RING` : for make ring the clock
  * `SNOOZE` : not used for now
  * `ABORT` : not used for now
