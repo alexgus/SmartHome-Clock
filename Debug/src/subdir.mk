@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Clock.cpp \
+../src/Conf.cpp \
 ../src/Delay.cpp \
 ../src/MQTTConnection.cpp \
 ../src/Ring.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./src/Clock.o \
+./src/Conf.o \
 ./src/Delay.o \
 ./src/MQTTConnection.o \
 ./src/Ring.o \
@@ -19,6 +21,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./src/Clock.d \
+./src/Conf.d \
 ./src/Delay.d \
 ./src/MQTTConnection.d \
 ./src/Ring.d \
