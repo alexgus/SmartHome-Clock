@@ -17,9 +17,11 @@ Clock::Clock() {
 	this->_ring = Ring();
 	this->delay = Delay();
 
-    this->mqtt = new MQTTConnection(CLOCK_MQTT_ID,CLOCK_MQTT_SERVER,CLOCK_MQTT_PORT);
+    this->mqtt = new MQTTConnection(Conf::getInstance().getMQTTId(),
+    		Conf::getInstance().getMQTTServer(),
+    		Conf::getInstance().getMQTTPort());
     this->mqtt->connect();
-    this->mqtt->subscribe(CLOCK_MQTT_TOPIC,*this);
+    this->mqtt->subscribe(Conf::getInstance().getMQTTTopic(),*this);
 }
 
 /**

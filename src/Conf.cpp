@@ -1,5 +1,7 @@
 #include "Conf.h"
 
+Conf Conf::singleton = Conf();
+
 Conf::Conf(){
 	string line, file;
 	ifstream confFile (DEFAULT_CONF_FILE);
@@ -12,6 +14,23 @@ Conf::Conf(){
 	this->conf = json::parse(file);
 }
 
-string Conf::getMQTTServer(){
-	return "";
+Conf& Conf::getInstance(){
+	return singleton;
 }
+
+string Conf::getMQTTId(){
+	return this->conf["MQTT"]["id"];
+}
+
+string Conf::getMQTTServer(){
+	return this->conf["MQTT"]["server"];
+}
+
+int Conf::getMQTTPort(){
+	return this->conf["MQTT"]["port"];
+}
+
+string Conf::getMQTTTopic(){
+	return this->conf["MQTT"]["topic"];
+}
+

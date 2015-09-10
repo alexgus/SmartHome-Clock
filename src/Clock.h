@@ -9,16 +9,12 @@
 #include <string>
 #include <iostream>
 
+#include "Conf.h"
 #include "State.h"
 #include "Delay.h"
 #include "Ring.h"
 #include "MQTTCallback.h"
 #include "MQTTConnection.h"
-
-#define CLOCK_MQTT_ID "Clock"
-#define CLOCK_MQTT_SERVER "192.168.0.31"
-#define CLOCK_MQTT_PORT 1883
-#define CLOCK_MQTT_TOPIC "/clock"
 
 using namespace std;
 
