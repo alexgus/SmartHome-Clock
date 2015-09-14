@@ -24,6 +24,7 @@ public:
     static int onOffBUTTON;
     static int snoozeBUTTON;
     static int dismissBUTTON;
+    static int dismissTime;
     static string subscribedTopic;
     static string publishTopic;
     

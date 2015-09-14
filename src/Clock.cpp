@@ -15,8 +15,14 @@ Clock *c;
 /**
  * handle pushed button
  */
-void ISR(){
+void ISRStop(){
 	c->stopRinging();
+}
+
+void ISRDismiss(){
+	Delay d = Delay(Clock::dismissTime);
+	d.play();
+	this->_ring.play();
 }
 
 Clock::Clock() {
@@ -76,6 +82,6 @@ void Clock::delayedRing() {
 }
 
 void Clock::setISR() {
-	 wiringPiISR(1, INT_EDGE_BOTH, ISR);
+	 wiringPiISR(1, INT_EDGE_BOTH, ISRStop);
 }
 
