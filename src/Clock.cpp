@@ -44,7 +44,7 @@ void Clock::callback(string topic, string payload) {
         this->ring();
 
     if(payload.find(string(Cmd[2])) == 0) // ABORT
-        ; // TODO
+        this->stopRinging()
 
     if(payload.find(string(Cmd[4])) == 0){ // CONF_DELAY
         string s = payload.substr(string(Cmd[4]).length() + 1);
@@ -65,7 +65,7 @@ void Clock::ring() {
 }
 
 void Clock::stopRinging() {
-
+	this->_ring.stop();
 }
 
 void Clock::delayedRing() {
