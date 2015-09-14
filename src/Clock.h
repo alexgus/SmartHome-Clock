@@ -8,6 +8,7 @@
 
 #include <string>
 #include <iostream>
+#include <wiringPi.h>
 
 #include "Conf.h"
 #include "State.h"

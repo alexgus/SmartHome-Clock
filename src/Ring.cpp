@@ -27,7 +27,6 @@ void ringPlay(){
 
 
 Ring::Ring(){
-	wiringPiSetup();
 	pinMode(0, OUTPUT);
 	running = false;
 }
