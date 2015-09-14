@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <wiringPi.h>
 
 #include "IO.h"
 
@@ -15,6 +16,7 @@ using namespace std;
 
 class Ring: public IO {
 public: 
+	Ring();
     void play();
 };
 
