@@ -29,11 +29,6 @@ public:
     Clock();
     
     /**
-     * handle pushed button
-     */
-    void ISR();
-    
-    /**
      * Callback when payload of subscribed topic is received
      * @param topic
      * @param payload

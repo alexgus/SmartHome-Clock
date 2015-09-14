@@ -11,8 +11,16 @@ char Cmd[][16] = { "RING", "SNOOZE", "ABORT", "DISMISS", "CONF_DELAY" };
  * Clock implementation
  */
 
+Clock *clock;
+/**
+ * handle pushed button
+ */
+void ISR(){
+	clock->stopRinging();
+}
 
 Clock::Clock() {
+	clock = this;
 	this->setISR();
 	this->_ring = Ring();
 	this->delay = Delay();
@@ -22,13 +30,7 @@ Clock::Clock() {
     		Conf::getInstance().getMQTTPort());
     this->mqtt->connect();
     this->mqtt->subscribe(Conf::getInstance().getMQTTTopic(),*this);
-}
 
-/**
- * handle pushed button
- */
-void Clock::ISR() {
-	this->stopRinging();
 }
 
 /**
@@ -74,6 +76,6 @@ void Clock::delayedRing() {
 }
 
 void Clock::setISR() {
-
+	 wiringPiISR(1, INT_EDGE_BOTH, ISR);
 }
 
