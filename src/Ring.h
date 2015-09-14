@@ -10,11 +10,9 @@
 #include <string>
 #include <wiringPi.h>
 
-#include "IO.h"
-
 using namespace std;
 
-class Ring: public IO {
+class Ring {
 public: 
 	Ring();
     void play();
