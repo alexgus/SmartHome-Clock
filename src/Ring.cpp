@@ -29,7 +29,7 @@ void ringPlay(){
 Ring::Ring(){
 	wiringPiSetup();
 	pinMode(0, OUTPUT);
-	this->running = false;
+	running = false;
 }
 
 void Ring::play() {
