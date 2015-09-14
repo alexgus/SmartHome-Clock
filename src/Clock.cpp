@@ -22,7 +22,7 @@ void ISRStop(){
 void ISRDismiss(){
 	Delay d = Delay(Clock::dismissTime);
 	d.play();
-	this->_ring.play();
+	c->ring();
 }
 
 Clock::Clock() {
