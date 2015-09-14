@@ -28,7 +28,7 @@ Clock::Clock() {
  * handle pushed button
  */
 void Clock::ISR() {
-	this->stopRinging()
+	this->stopRinging();
 }
 
 /**
