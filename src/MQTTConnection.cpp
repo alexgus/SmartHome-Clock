@@ -32,7 +32,7 @@ MQTTConnection::MQTTConnection(string clientID, string serverIP, int port){
 }
 
 void MQTTConnection::connect() {
-    MQTTClient_create(&this->client, string(this->serverIP + string(":") + to_string(this->port)).c_str(), this->clientID.c_str(), MQTTCLIENT_PERSISTENCE_NONE, NULL);
+    MQTTClient_create(&this->client, string(string("tcp://") + this->serverIP + string(":") + to_string(this->port)).c_str(), this->clientID.c_str(), MQTTCLIENT_PERSISTENCE_NONE, NULL);
 
     this->conn_opts.keepAliveInterval = 20;
     this->conn_opts.cleansession = 1;
