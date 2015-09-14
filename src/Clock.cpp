@@ -11,16 +11,16 @@ char Cmd[][16] = { "RING", "SNOOZE", "ABORT", "DISMISS", "CONF_DELAY" };
  * Clock implementation
  */
 
-Clock *clock;
+Clock *c;
 /**
  * handle pushed button
  */
 void ISR(){
-	clock->stopRinging();
+	c->stopRinging();
 }
 
 Clock::Clock() {
-	clock = this;
+	c = this;
 	this->setISR();
 	this->_ring = Ring();
 	this->delay = Delay();
@@ -46,7 +46,7 @@ void Clock::callback(string topic, string payload) {
         this->ring();
 
     if(payload.find(string(Cmd[2])) == 0) // ABORT
-        this->stopRinging()
+        this->stopRinging();
 
     if(payload.find(string(Cmd[4])) == 0){ // CONF_DELAY
         string s = payload.substr(string(Cmd[4]).length() + 1);
