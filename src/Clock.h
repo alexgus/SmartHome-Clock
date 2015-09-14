@@ -19,12 +19,13 @@
 
 using namespace std;
 
+#define DISMISS_TIME 5000
+
 class Clock: public MQTTCallback {
 public: 
     static int onOffBUTTON;
     static int snoozeBUTTON;
     static int dismissBUTTON;
-    static int dismissTime;
     static string subscribedTopic;
     static string publishTopic;
     

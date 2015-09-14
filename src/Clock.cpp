@@ -20,7 +20,7 @@ void ISRStop(){
 }
 
 void ISRDismiss(){
-	Delay d = Delay(Clock::dismissTime);
+	Delay d = Delay(DISMISS_TIME);
 	d.play();
 	c->ring();
 }
