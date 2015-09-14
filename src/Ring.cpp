@@ -9,7 +9,7 @@
  * Ring implementation
  */
 
-void Ring::Ring(){
+Ring::Ring(){
 	wiringPiSetup();
 	pinMode(0, OUTPUT);
 }
