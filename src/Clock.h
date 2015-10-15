@@ -20,7 +20,7 @@
 #include "MQTTConnection.h"
 
 #define DISMISS_TIME 60
-#define SNOOZE_TIME  3
+#define SNOOZE_TIME  10
 
 using namespace std;
 

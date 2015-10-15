@@ -13,16 +13,18 @@ mutex mtx;
 bool running;
 
 void ringPlay(){
-	mtx.lock();
-	while(running == true)
+	//mtx.lock();
+	while(running)
 	{
-		mtx.unlock();
+		//mtx.unlock();
 
 		digitalWrite (0, HIGH);
 		delayMicroseconds (500);
 		digitalWrite (0,  LOW);
 		delayMicroseconds (500);
+		//mtx.lock();
 	}
+	//mtx.unlock();
 }
 
 
@@ -32,11 +34,9 @@ Ring::Ring(){
 }
 
 void Ring::play() {
-	cout << "Ringing" << endl;
-
 	mtx.lock();
 
-	if(running != true){
+	if(!running){
 		running = true;
 
 		mtx.unlock();

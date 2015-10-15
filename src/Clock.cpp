@@ -120,10 +120,10 @@ void Clock::delayedRing() {
 		this->state = DELAYED;
 		this->mstate.unlock();
 
+		this->_ring.stop();
+
 		this->publishState(DELAYED);
-		cout << "---" << endl;
 		sleep(this->secSnooze);
-		cout << "---" << endl;
 
 		this->ring();
 	}

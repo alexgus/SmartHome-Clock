@@ -87,13 +87,9 @@ void MQTTConnection::publish(string topic, string payload){
 
     MQTTClient_publishMessage(this->client, topic.c_str(), &pubmsg, &token);
 
-    printf("Waiting for up to %d seconds for publication of %s\n"
-            "on topic %s for client with ClientID: %s\n",
-            (int)(this->timeout/1000), payload.c_str(), topic.c_str(), this->clientID.c_str());
-
     MQTTClient_waitForCompletion(this->client, token, this->timeout);
 
-    printf("Message with delivery token %d delivered\n", token);
+    printf("Message %s delivered\n", payload.c_str());
 }
 
 void MQTTConnection::subscribe(string topic, MQTTCallback &cb){
