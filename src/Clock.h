@@ -19,6 +19,10 @@
 #include "MQTTCallback.h"
 #include "MQTTConnection.h"
 
+#define PIN_ON_OFF_BUTTON  "N/D"
+#define PIN_SNOOZE_BUTTON  2
+#define PIN_DISMISS_BUTTON 1
+
 #define DISMISS_TIME 60
 #define SNOOZE_TIME  10
 
@@ -26,11 +30,7 @@ using namespace std;
 
 class Clock: public MQTTCallback {
 public: 
-    static int onOffBUTTON;
-    static int snoozeBUTTON;
-    static int dismissBUTTON;
-    
-    Clock();
+	Clock();
     
     /**
      * Callback when payload of subscribed topic is received

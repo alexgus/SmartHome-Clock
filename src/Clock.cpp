@@ -21,7 +21,7 @@ void funThreadStop(){
 	c->stopRinging();
 }
 
-void funThreadDismiss(){
+void funThreadSnooze(){
 	c->delayedRing();
 }
 
@@ -32,8 +32,8 @@ void ISRStop(){
 	tevent = new thread(funThreadStop);
 }
 
-void ISRDismiss(){
-	tevent = new thread(funThreadDismiss);
+void ISRSnooze(){
+	tevent = new thread(funThreadSnooze);
 }
 
 Clock::Clock() {
@@ -131,7 +131,7 @@ void Clock::delayedRing() {
 }
 
 void Clock::setISR() {
-	wiringPiISR(1, INT_EDGE_BOTH, ISRStop);
-	wiringPiISR(2, INT_EDGE_BOTH, ISRDismiss);
+	wiringPiISR(PIN_DISMISS_BUTTON, INT_EDGE_BOTH, ISRStop);
+	wiringPiISR(PIN_SNOOZE_BUTTON, INT_EDGE_BOTH, ISRSnooze);
 }
 

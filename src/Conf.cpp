@@ -11,7 +11,12 @@ Conf::Conf(){
 		confFile.close();
 	}
 
-	this->conf = json::parse(file);
+	try{
+		this->conf = json::parse(file);
+	}catch(invalid_argument e){
+		cout << "Configuration file is missing or some attributes missing" << endl;
+		cout << e.what() << endl;
+	}
 }
 
 Conf& Conf::getInstance(){
