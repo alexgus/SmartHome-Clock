@@ -42,7 +42,8 @@ Clock::Clock() {
 
 	this->setISR();
 	this->_ring = Ring();
-	this->delay = Delay();
+
+	this->secSnooze = SNOOZE_TIME;
 
 	this->mqtt = new MQTTConnection(Conf::getInstance().getMQTTId(),
 			Conf::getInstance().getMQTTServer(),
@@ -76,8 +77,7 @@ void Clock::callback(string topic, string payload) {
 
 	if(payload.find(string(Cmd[4])) == 0){ // CONF_DELAY
 		string s = payload.substr(string(Cmd[4]).length() + 1);
-		int sec = stoi(s, NULL,10);
-		this->delay = Delay(sec);
+		this->secSnooze = stoi(s, NULL,10);
 	}
 }
 
@@ -121,7 +121,9 @@ void Clock::delayedRing() {
 		this->mstate.unlock();
 
 		this->publishState(DELAYED);
-		this->delay.play();
+		cout << "---" << endl;
+		sleep(this->secSnooze);
+		cout << "---" << endl;
 
 		this->ring();
 	}

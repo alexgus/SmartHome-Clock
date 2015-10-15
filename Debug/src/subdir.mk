@@ -6,7 +6,6 @@
 CPP_SRCS += \
 ../src/Clock.cpp \
 ../src/Conf.cpp \
-../src/Delay.cpp \
 ../src/MQTTConnection.cpp \
 ../src/Ring.cpp \
 ../src/main.cpp 
@@ -14,7 +13,6 @@ CPP_SRCS += \
 OBJS += \
 ./src/Clock.o \
 ./src/Conf.o \
-./src/Delay.o \
 ./src/MQTTConnection.o \
 ./src/Ring.o \
 ./src/main.o 
@@ -22,7 +20,6 @@ OBJS += \
 CPP_DEPS += \
 ./src/Clock.d \
 ./src/Conf.d \
-./src/Delay.d \
 ./src/MQTTConnection.d \
 ./src/Ring.d \
 ./src/main.d 
@@ -35,5 +32,6 @@ src/%.o: ../src/%.cpp
 	g++ -std=c++1y -I/home/alexandre/Documents/Dev/TO52/org.eclipse.paho.mqtt.c/src -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
+
 
 
