@@ -28,6 +28,7 @@ public:
 	string getMQTTServer();
 	int getMQTTPort();
 	string getMQTTTopic();
+	string getMQTTTopicState();
 
 	static Conf& getInstance();
 

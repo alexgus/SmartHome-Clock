@@ -34,3 +34,6 @@ string Conf::getMQTTTopic(){
 	return this->conf["MQTT"]["topic"];
 }
 
+string Conf::getMQTTTopicState(){
+	return this->conf["MQTT"]["topicState"];
+}

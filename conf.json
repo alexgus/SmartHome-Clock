@@ -3,6 +3,7 @@
     	"id" : "Clock1",
         "server": "192.168.1.106",
         "port" : 1883,
-        "topic": "/clock"
+        "topic": "/clock",
+        "topicState": "/clockState"
     }
 }

@@ -9,6 +9,8 @@
 #include <string>
 #include <iostream>
 #include <wiringPi.h>
+#include <thread>
+#include <mutex>
 
 #include "Conf.h"
 #include "State.h"
@@ -19,7 +21,7 @@
 
 using namespace std;
 
-#define DISMISS_TIME 5000
+#define DISMISS_TIME 60
 
 class Clock: public MQTTCallback {
 public: 
@@ -50,10 +52,11 @@ public:
     void delayedRing();
 private: 
     int id;
-    State state;
     Delay delay;
     Ring _ring;
     MQTTConnection *mqtt;
+    mutex mstate;
+    State state;
 
     void setISR();
 };
